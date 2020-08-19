@@ -18,7 +18,8 @@ import java.util.*;
 import static org.junit.Assert.assertEquals;
 
 @RunWith(value= Parameterized.class)
-public class MyCreatePathTest {
+public class
+MyCreatePathTest {
 
     private boolean expectedResult;
     private ZooKeeper zkc ;

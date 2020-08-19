@@ -64,7 +64,7 @@ Please log the _stack traces_ at **ERROR** level, but never at **INFO** level or
 * It is okay to use the filesystem and network in tests since that's our business but you need to clean up them after yourself.
 * _Do not_ use sleep or other timing assumptions in tests. It is always, always, wrong and will fail intermittently on any test server with other things going on that causes delays.
 * We are strongly recommending adding a _timeout_ value to all our test cases, to prevent a build from completing indefinitely.
-`//@Test(timeout=60000)`
+`@Test(timeout=60000)`
 
 ### Configuration
 

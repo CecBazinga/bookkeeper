@@ -856,28 +856,6 @@
         <artifactId>maven-surefire-plugin</artifactId>
         <version>${maven-surefire-plugin.version}</version>
         <configuration>
-          <excludes>
-            <!-- excludes all tests in a package -->
-            <exclude>bookkeeper-benchmark.*</exclude>
-            <exclude>bookkeeper-common.*</exclude>
-            <exclude>bookkeeper-common-allocator.*</exclude>
-            <exclude>bookkeeper-dist.*</exclude>
-            <exclude>bookkeeper-http.*</exclude>
-            <exclude>bookkeeper-proto.*</exclude>
-            <exclude>bookkeeper-server.src.test.*</exclude>
-            <exclude>bookkeeper-stats.*</exclude>
-            <exclude>bookkeeper-stats-providers.*</exclude>
-            <exclude>buildtools.*</exclude>
-            <exclude>circe-checksum.*</exclude>
-            <exclude>cpu-affinity.*</exclude>
-            <exclude>metadata-drivers.*</exclude>
-            <exclude>microbenchmarks.*</exclude>
-            <exclude>shaded.*</exclude>
-            <exclude>stats.*</exclude>
-            <exclude>stream.*</exclude>
-            <exclude>tests.*</exclude>
-            <exclude>tools.*</exclude>
-          </excludes>
           <argLine>-Xmx2G -Djava.net.preferIPv4Stack=true -Dio.netty.leakDetection.level=paranoid</argLine>
           <redirectTestOutputToFile>${redirectTestOutputToFile}</redirectTestOutputToFile>
           <forkCount>${forkCount.variable}</forkCount>

@@ -2,13 +2,10 @@ package Test.BookkeeperAdmin;
 
 import org.apache.bookkeeper.client.*;
 import org.apache.bookkeeper.client.BookKeeperAdmin.*;
-import org.apache.bookkeeper.conf.ClientConfiguration;
-import org.apache.bookkeeper.conf.ServerConfiguration;
 import org.apache.bookkeeper.test.BookKeeperClusterTestCase;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
-import org.mockito.InjectMocks;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

@@ -8,7 +8,4 @@ addons:
     token: "3a652adc6c42958cc6a7d600e769ab152b33ae08"
 
 
-script:
-- ant build
-- sonar-scanner
-
+script: mvn clean verify sonar:sonar

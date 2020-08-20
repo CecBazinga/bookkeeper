@@ -9,4 +9,4 @@ addons:
 
 
 script:
-  - mvn clean verify sonar:sonar
+  - mvn clean verify sonar:sonar -X

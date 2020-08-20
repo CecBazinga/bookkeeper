@@ -1,4 +1,4 @@
-package Test.BookkeeperAdmin;
+package org.apache.bookkeeper.client;
 
 import org.apache.bookkeeper.client.BookKeeperAdmin;
 import org.apache.bookkeeper.conf.ServerConfiguration;

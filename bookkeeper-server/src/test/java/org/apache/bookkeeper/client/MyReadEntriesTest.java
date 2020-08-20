@@ -1,4 +1,4 @@
-package Test.BookkeeperAdmin;
+package org.apache.bookkeeper.client;
 
 import org.apache.bookkeeper.client.*;
 import org.apache.bookkeeper.client.BookKeeperAdmin.*;
@@ -29,9 +29,6 @@ public class MyReadEntriesTest extends BookKeeperClusterTestCase {
     private long lastEntry ;
 
     private BookKeeperAdmin bA;
-    private static final Logger LOG = LoggerFactory.getLogger(BookKeeperAdminTest.class);
-    private BookKeeper.DigestType digestType = BookKeeper.DigestType.CRC32;
-    private static final String PASSWORD = "testPasswd";
     private static final int numOfBookies = 2;
     private final int lostBookieRecoveryDelayInitValue = 1800;
 

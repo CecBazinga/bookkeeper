@@ -1,4 +1,4 @@
-package Test;
+package org.apache.bookkeeper.util.collections;
 
 
 import org.apache.bookkeeper.test.ZooKeeperUtil;

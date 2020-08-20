@@ -8,5 +8,4 @@ addons:
     token: "3a652adc6c42958cc6a7d600e769ab152b33ae08"
 
 
-install: mvn clean install -q -DskipTests=true -Dmaven.javadoc.skip=true -B -V -Djdk.tls.client.protocols="TLSv1,TLSv1.1,TLSv1.2"
 script:  mvn clean verify sonar:sonar

@@ -1,6 +1,6 @@
 package org.apache.bookkeeper.client;
 
-import org.apache.bookkeeper.client.BookKeeperAdmin;
+
 import org.apache.bookkeeper.conf.ServerConfiguration;
 import org.apache.bookkeeper.test.BookKeeperClusterTestCase;
 import org.junit.Test;
@@ -13,10 +13,10 @@ import java.util.Collection;
 import static org.junit.Assert.assertEquals;
 
 @RunWith(value= Parameterized.class)
-public class MyInitNewClusterTest extends BookKeeperClusterTestCase {
+public class BookKeeperAdminInitNewClusterTest extends BookKeeperClusterTestCase {
 
     private boolean result;
-    private  ServerConfiguration conf;
+    private ServerConfiguration conf;
     private String confType ;
 
     private static final int numOfBookies = 2;
@@ -37,7 +37,7 @@ public class MyInitNewClusterTest extends BookKeeperClusterTestCase {
 
 
 
-    public MyInitNewClusterTest(boolean result , String conf ){
+    public BookKeeperAdminInitNewClusterTest(boolean result , String conf ){
 
         super(numOfBookies, 480);
         baseConf.setLostBookieRecoveryDelay(lostBookieRecoveryDelayInitValue);
@@ -49,7 +49,7 @@ public class MyInitNewClusterTest extends BookKeeperClusterTestCase {
     }
 
     @Test
-    public void initNewClusterTest() {
+    public void testInitNewCluster() {
 
         boolean realResult ;
 
@@ -81,4 +81,5 @@ public class MyInitNewClusterTest extends BookKeeperClusterTestCase {
         }
         assertEquals(result,realResult);
     }
+
 }

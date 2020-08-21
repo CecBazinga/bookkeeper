@@ -1,27 +1,21 @@
 package org.apache.bookkeeper.client;
 
-import org.apache.bookkeeper.client.*;
-import org.apache.bookkeeper.client.BookKeeperAdmin.*;
+import junit.framework.TestCase;
 import org.apache.bookkeeper.test.BookKeeperClusterTestCase;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.Collection;
 
-import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.samePropertyValuesAs;
 import static org.junit.Assert.assertEquals;
 
-
-
 @RunWith(value= Parameterized.class)
-public class MyReadEntriesTest extends BookKeeperClusterTestCase {
+public class BookKeeperAdminReadEntriesTest extends BookKeeperClusterTestCase {
 
     private String result;
     private long ledgerId ;
@@ -48,7 +42,7 @@ public class MyReadEntriesTest extends BookKeeperClusterTestCase {
 
 
 
-    public MyReadEntriesTest(String result , long ledgerId , long firstEntry , long lastEntry){
+    public BookKeeperAdminReadEntriesTest(String result , long ledgerId , long firstEntry , long lastEntry){
 
         super(numOfBookies, 480);
         baseConf.setLostBookieRecoveryDelay(lostBookieRecoveryDelayInitValue);
@@ -64,7 +58,7 @@ public class MyReadEntriesTest extends BookKeeperClusterTestCase {
     }
 
     @Test
-    public void readEntriesTest() {
+    public void testReadEntries() {
 
         try {
             this.bA = new BookKeeperAdmin(baseClientConf);
@@ -85,8 +79,8 @@ public class MyReadEntriesTest extends BookKeeperClusterTestCase {
 
             try {
 
-                LedgerEntriesIterable expectedResult = bA.new LedgerEntriesIterable(ledgerId,firstEntry,lastEntry);
-                LedgerEntriesIterable realResult = (LedgerEntriesIterable) bA.readEntries(ledgerId,firstEntry,lastEntry);
+                BookKeeperAdmin.LedgerEntriesIterable expectedResult = bA.new LedgerEntriesIterable(ledgerId,firstEntry,lastEntry);
+                BookKeeperAdmin.LedgerEntriesIterable realResult = (BookKeeperAdmin.LedgerEntriesIterable) bA.readEntries(ledgerId,firstEntry,lastEntry);
 
                 assertThat(realResult, samePropertyValuesAs(expectedResult));
 
@@ -97,7 +91,7 @@ public class MyReadEntriesTest extends BookKeeperClusterTestCase {
                 e.printStackTrace();
             }
 
-        //in questo caso mi aspetto che vengano sollevate delle eccezioni
+            //in questo caso mi aspetto che vengano sollevate delle eccezioni
         }else{
 
             boolean expectedBoolean = true ;

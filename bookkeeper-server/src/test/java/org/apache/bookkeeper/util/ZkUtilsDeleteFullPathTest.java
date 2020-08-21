@@ -1,7 +1,7 @@
-package org.apache.bookkeeper.util.collections;
+package org.apache.bookkeeper.util;
 
+import junit.framework.TestCase;
 import org.apache.bookkeeper.test.ZooKeeperUtil;
-import org.apache.bookkeeper.util.ZkUtils;
 import org.apache.zookeeper.CreateMode;
 import org.apache.zookeeper.ZooDefs;
 import org.apache.zookeeper.ZooKeeper;
@@ -12,19 +12,21 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 
 import java.io.IOException;
-import java.util.*;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
 @RunWith(value= Parameterized.class)
-public class MyDeletePathTest {
+public class ZkUtilsDeleteFullPathTest  {
 
     private boolean expectedResult;
     private ZooKeeper zkc ;
     private String path;
     private int znodeVersion;
     private static List<String> paths = Arrays.asList("/ledgers/000/000/000/001", "/ledgers/000/000/000/002",
-                                          "/ledgers/000/000/000/003");
+            "/ledgers/000/000/000/003");
     // ZooKeeper related variables
     private static ZooKeeperUtil zkUtil = new ZooKeeperUtil();
 
@@ -69,7 +71,7 @@ public class MyDeletePathTest {
 
 
 
-    public MyDeletePathTest(boolean expectedResult ,String zkc , String path , int znodeVersion) throws IOException {
+    public ZkUtilsDeleteFullPathTest(boolean expectedResult ,String zkc , String path , int znodeVersion) throws IOException {
 
         if(zkc == "null"){
 
@@ -92,25 +94,24 @@ public class MyDeletePathTest {
     }
 
     @Test
-    public void deletePathTest() {
+    public void testDeleteFullPathOptimistic() {
 
 
 
         boolean realResult;
 
-            try {
+        try {
 
-                ZkUtils.deleteFullPathOptimistic(zkc, path, znodeVersion);
-                realResult = true;
+            ZkUtils.deleteFullPathOptimistic(zkc, path, znodeVersion);
+            realResult = true;
 
-            } catch (Exception e) {
+        } catch (Exception e) {
 
-                realResult = false;
-                e.printStackTrace();
-            }
-
-            assertEquals(expectedResult, realResult);
+            realResult = false;
+            e.printStackTrace();
         }
 
+        assertEquals(expectedResult, realResult);
+    }
 
 }

@@ -1,14 +1,13 @@
-package org.apache.bookkeeper.util.collections;
-
+package org.apache.bookkeeper.util;
 
 import org.apache.bookkeeper.test.ZooKeeperUtil;
-import org.apache.bookkeeper.util.ZkUtils;
-
 import org.apache.zookeeper.CreateMode;
 import org.apache.zookeeper.ZooDefs;
 import org.apache.zookeeper.ZooKeeper;
 import org.apache.zookeeper.data.ACL;
-import org.junit.*;
+import org.junit.AfterClass;
+import org.junit.BeforeClass;
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 
@@ -18,8 +17,7 @@ import java.util.*;
 import static org.junit.Assert.assertEquals;
 
 @RunWith(value= Parameterized.class)
-public class
-MyCreatePathTest {
+public class ZkUtilsCreateFullPathTest {
 
     private boolean expectedResult;
     private ZooKeeper zkc ;
@@ -81,8 +79,8 @@ MyCreatePathTest {
 
 
 
-    public MyCreatePathTest(boolean expectedResult ,String zkc , String path , byte[] data , List<ACL> acl ,
-            CreateMode createMode) throws Exception {
+    public ZkUtilsCreateFullPathTest(boolean expectedResult ,String zkc , String path , byte[] data , List<ACL> acl ,
+                            CreateMode createMode) throws Exception {
 
         if(zkc == "null"){
 
@@ -107,7 +105,7 @@ MyCreatePathTest {
     }
 
     @Test
-    public void createPathTest() {
+    public void testCreateFullPathOptimistic() {
 
 
 

@@ -213,42 +213,7 @@ public abstract class BookKeeperClusterTestCase {
         }
     }
 
-    public void tearingDown() throws Exception {
-        boolean failed = false;
-        for (Throwable e : asyncExceptions) {
-            LOG.error("Got async exception: {}", e);
-            failed = true;
-        }
-        assertTrue("Async failure", !failed);
-        Stopwatch sw = Stopwatch.createStarted();
-        LOG.info("TearDown");
-        Exception tearDownException = null;
-        // stop bookkeeper service
-        try {
-            stopBKCluster();
-        } catch (Exception e) {
-            LOG.error("Got Exception while trying to stop BKCluster", e);
-            tearDownException = e;
-        }
-        // stop zookeeper service
-        try {
-            stopZKCluster();
-        } catch (Exception e) {
-            LOG.error("Got Exception while trying to stop ZKCluster", e);
-            tearDownException = e;
-        }
-        // cleanup temp dirs
-        try {
-            cleanupTempDirs();
-        } catch (Exception e) {
-            LOG.error("Got Exception while trying to cleanupTempDirs", e);
-            tearDownException = e;
-        }
-        LOG.info("Tearing down test {} in {} ms.", runtime.getMethodName(), sw.elapsed(TimeUnit.MILLISECONDS));
-        if (tearDownException != null) {
-            throw tearDownException;
-        }
-    }
+
 
     protected File createTempDir(String prefix, String suffix) throws IOException {
         File dir = IOUtils.createTempDir(prefix, suffix);

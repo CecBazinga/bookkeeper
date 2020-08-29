@@ -23,7 +23,7 @@
   <artifactId>bookkeeper-server</artifactId>
   <properties>
     <sonar.coverage.jacoco.xmlReportPaths>${basedir}/../${aggregate.report.dir}</sonar.coverage.jacoco.xmlReportPaths>
-    <mockito.version>1.10.19</mockito.version>
+    <mockito.version>2.23.0</mockito.version>
     <surefire.version>3.0.0-M4</surefire.version>
   </properties>
 

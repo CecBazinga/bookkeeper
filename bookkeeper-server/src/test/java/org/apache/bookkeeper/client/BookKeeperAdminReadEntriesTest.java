@@ -35,6 +35,7 @@ public class BookKeeperAdminReadEntriesTest extends BookKeeperClusterTestCase {
                 {"no",  -1 , -1 , -1},
                 {"yes",  0 ,  1 ,  2},
                 {"yes",  1 ,  0 , -1},
+                {"no",   1 , -1 , -2}  //aggiunto per aumentare la branch coverage
 
         });
 

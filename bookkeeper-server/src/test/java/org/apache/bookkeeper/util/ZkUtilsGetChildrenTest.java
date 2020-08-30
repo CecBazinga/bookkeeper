@@ -1,5 +1,6 @@
 package org.apache.bookkeeper.util;
 
+import org.apache.bookkeeper.discover.RegistrationManager;
 import org.apache.bookkeeper.test.ZooKeeperUtil;
 import org.apache.zookeeper.CreateMode;
 import org.apache.zookeeper.ZooDefs;
@@ -9,6 +10,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
+import org.mockito.Mock;
 
 import javax.sound.midi.SysexMessage;
 import java.io.IOException;
@@ -19,6 +21,9 @@ import java.util.List;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 @RunWith(value= Parameterized.class)
 
@@ -34,6 +39,9 @@ public class ZkUtilsGetChildrenTest  {
     private static List<String> childPaths = Arrays.asList("001", "002", "003");
     // ZooKeeper related variables
     private static ZooKeeperUtil zkUtil = new ZooKeeperUtil();
+
+    @Mock
+    ZkUtils.GetChildrenCtx mocked = mock(ZkUtils.GetChildrenCtx.class) ;
 
 
     @BeforeClass
@@ -65,14 +73,16 @@ public class ZkUtilsGetChildrenTest  {
 
                 {false , "null" , "/ledgers/000/000/000/004" , 0},
 
-                {true , "new" , "/ledgers/000/000/000" , 1000 },
+                {true , "new" , "/ledgers/000/000/000" , 100 },
 
                 {false , "wrong" , "/ledgers/000/000/000/00b" , -1},
-
+/*
                 {false , "new" , "/ledgers/000/000/00b" , 0 },//aggiunto per migliorare statement e branch coverage
 
                 {false , "new" , "/ledgers/000/000/003" , 1 },//aggiunto per migliorare statement e branch coverage
 
+                {false , "mock" , "/ledgers/000/000" , 1000 },//aggiunto per migliorare statement coverage
+*/
         });
 
     }
@@ -91,6 +101,12 @@ public class ZkUtilsGetChildrenTest  {
         }else if(zkc == "new"){
 
             this.zkc = new ZooKeeper(zkUtil.getZooKeeperConnectString(), 10000, null);
+
+        }else if(zkc == "mock"){
+
+            //TODO MOCK THE INNER METHOD
+            this.zkc = new ZooKeeper(zkUtil.getZooKeeperConnectString(), 10000, null);
+            when(mocked).thenThrow(new InterruptedException());
         }
 
         this.expectedResult = expectedResult;
@@ -103,7 +119,7 @@ public class ZkUtilsGetChildrenTest  {
     @Test
     public void testGetChildrenInSingleNode() {
 
-        boolean realResult;
+        boolean realResult = true ;
 
         try {
 

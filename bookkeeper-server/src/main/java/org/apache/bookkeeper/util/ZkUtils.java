@@ -213,7 +213,7 @@ public class ZkUtils {
         }
     }
 
-    private static class GetChildrenCtx {
+    public static class GetChildrenCtx {
         int rc;
         boolean done = false;
         List<String> children = null;

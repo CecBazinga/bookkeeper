@@ -17,6 +17,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 
 
+
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
@@ -36,23 +37,11 @@ public class BookKeeperAdminInitNewClusterTest extends BookKeeperClusterTestCase
     private static final int numOfBookies = 2;
     private final int lostBookieRecoveryDelayInitValue = 1800;
 
-    /*
+
     @Mock
     RegistrationManager mockedRM = mock(RegistrationManager.class) ;
-    //ZKRegistrationManager mockedRM = new ZKRegistrationManager();
-    //RegistrationManager mockedRM = mock(RegistrationManager.class) ;
 
-    /*
-    @Mock ServerConfiguration configuration;
-    @Mock ZooKeeper zk;
-    @Mock List<ACL> zkAcls;
-    @Mock LayoutManager layoutManager;
-    @Mock String ledgersRootPath;
-    @Mock String cookiePath;
-    @Mock String bookieRegistrationPath;
-    @Mock String bookieReadonlyRegistrationPath;
-    @Mock int zkTimeoutMs;
-*/
+
 
     @Parameterized.Parameters
     public static Collection<Object[]> getTestParameters(){
@@ -61,10 +50,10 @@ public class BookKeeperAdminInitNewClusterTest extends BookKeeperClusterTestCase
                 //last parameter states if the method rm.initNewCluster() called inside
                 // BookKeeperAdmin.initNewCluster(conf) must be mocked or not
 
-                {true ,  "new" },
-                {false , "null" },
-                {false , "wrong"},
-                //{false , "mock"},  //caso di test introdotto per portare la branch coverage al 100%
+                //{true ,  "new" },
+                //{false , "null" },
+                //{false , "wrong"},
+                {false , "mock"},  //caso di test introdotto per portare la branch coverage al 100%
                                     // entrando nella clausola catch del metodo initNewCluste()
 
         });
@@ -108,18 +97,16 @@ public class BookKeeperAdminInitNewClusterTest extends BookKeeperClusterTestCase
 
         }else if(confType == "mock"){
 
-            /*
-            ZooKeeperCluster localZkServer =  new ZooKeeperUtil();
-            localZkServer.startCluster();
-            ZooKeeper zkc;
-            zkc = localZkServer.getZooKeeperClient();
+
+
             this.conf = new ServerConfiguration(baseConf);
             String ledgersRootPath = "/testledgers";
             this.conf.setMetadataServiceUri(newMetadataServiceUri(ledgersRootPath));
-            mockedClass = new ZKRegistrationManager(this.conf, zkc, () -> {});
-             */
 
-            //when(mockedRM.initNewCluster()).thenThrow(new Exception());
+
+            when(mockedRM.initNewCluster()).thenThrow(new Exception());
+
+
 
         }
 

@@ -1237,6 +1237,7 @@ public class BookKeeperAdmin implements AutoCloseable {
             try {
                 return rm.initNewCluster();
             } catch (Exception e) {
+                System.out.println("MOCK WORKS!!! \n");
                 throw new UncheckedExecutionException(e.getMessage(), e);
             }
         });

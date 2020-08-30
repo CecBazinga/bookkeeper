@@ -457,6 +457,7 @@ public class ZKRegistrationManager implements RegistrationManager {
 
     @Override
     public boolean initNewCluster() throws Exception {
+        System.out.println("I have been called ! \n");
         String zkServers = ZKMetadataDriverBase.resolveZkServers(conf);
         String instanceIdPath = ledgersRootPath + "/" + INSTANCEID;
         log.info("Initializing ZooKeeper metadata for new cluster, ZKServers: {} ledger root path: {}", zkServers,

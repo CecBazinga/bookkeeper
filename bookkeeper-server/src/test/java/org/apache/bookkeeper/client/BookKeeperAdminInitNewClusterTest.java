@@ -37,10 +37,10 @@ public class BookKeeperAdminInitNewClusterTest extends BookKeeperClusterTestCase
     private static final int numOfBookies = 2;
     private final int lostBookieRecoveryDelayInitValue = 1800;
 
-
+/*
     @Mock
     RegistrationManager mockedRM = mock(RegistrationManager.class) ;
-
+*/
 
 
     @Parameterized.Parameters
@@ -50,10 +50,10 @@ public class BookKeeperAdminInitNewClusterTest extends BookKeeperClusterTestCase
                 //last parameter states if the method rm.initNewCluster() called inside
                 // BookKeeperAdmin.initNewCluster(conf) must be mocked or not
 
-                //{true ,  "new" },
-                //{false , "null" },
-                //{false , "wrong"},
-                {false , "mock"},  //caso di test introdotto per portare la branch coverage al 100%
+                {true ,  "new" },
+                {false , "null" },
+                {false , "wrong"},
+                //{false , "mock"},  //caso di test introdotto per portare la branch coverage al 100%
                                     // entrando nella clausola catch del metodo initNewCluste()
 
         });
@@ -104,7 +104,7 @@ public class BookKeeperAdminInitNewClusterTest extends BookKeeperClusterTestCase
             this.conf.setMetadataServiceUri(newMetadataServiceUri(ledgersRootPath));
 
 
-            when(mockedRM.initNewCluster()).thenThrow(new Exception());
+            //when(mockedRM.initNewCluster()).thenThrow(new Exception());
 
 
 

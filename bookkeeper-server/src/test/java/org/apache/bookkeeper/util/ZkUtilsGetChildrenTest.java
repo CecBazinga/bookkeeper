@@ -40,9 +40,10 @@ public class ZkUtilsGetChildrenTest  {
     // ZooKeeper related variables
     private static ZooKeeperUtil zkUtil = new ZooKeeperUtil();
 
+    /*
     @Mock
     ZkUtils.GetChildrenCtx mocked = mock(ZkUtils.GetChildrenCtx.class) ;
-
+*/
 
     @BeforeClass
     public static  void setUp() throws Exception {
@@ -76,13 +77,13 @@ public class ZkUtilsGetChildrenTest  {
                 {true , "new" , "/ledgers/000/000/000" , 100 },
 
                 {false , "wrong" , "/ledgers/000/000/000/00b" , -1},
-/*
+
                 {false , "new" , "/ledgers/000/000/00b" , 0 },//aggiunto per migliorare statement e branch coverage
 
                 {false , "new" , "/ledgers/000/000/003" , 1 },//aggiunto per migliorare statement e branch coverage
 
-                {false , "mock" , "/ledgers/000/000" , 1000 },//aggiunto per migliorare statement coverage
-*/
+                //{false , "mock" , "/ledgers/000/000" , 1000 },//aggiunto per migliorare statement coverage
+
         });
 
     }
@@ -104,9 +105,9 @@ public class ZkUtilsGetChildrenTest  {
 
         }else if(zkc == "mock"){
 
-            //TODO MOCK THE INNER METHOD
+
             this.zkc = new ZooKeeper(zkUtil.getZooKeeperConnectString(), 10000, null);
-            when(mocked).thenThrow(new InterruptedException());
+            //when(mocked).thenThrow(new InterruptedException());
         }
 
         this.expectedResult = expectedResult;

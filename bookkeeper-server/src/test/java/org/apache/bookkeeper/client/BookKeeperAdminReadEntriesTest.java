@@ -1,6 +1,5 @@
 package org.apache.bookkeeper.client;
 
-import junit.framework.TestCase;
 import org.apache.bookkeeper.test.BookKeeperClusterTestCase;
 import org.junit.Test;
 import org.junit.runner.RunWith;

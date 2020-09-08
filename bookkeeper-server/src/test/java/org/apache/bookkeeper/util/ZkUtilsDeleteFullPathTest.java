@@ -1,6 +1,6 @@
 package org.apache.bookkeeper.util;
 
-import junit.framework.TestCase;
+
 import org.apache.bookkeeper.test.ZooKeeperUtil;
 import org.apache.zookeeper.CreateMode;
 import org.apache.zookeeper.ZooDefs;

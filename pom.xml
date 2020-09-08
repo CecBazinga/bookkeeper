@@ -149,7 +149,7 @@
     <libthrift9.version>0.12.0</libthrift9.version>
     <lombok.version>1.18.10</lombok.version>
     <lz4.version>1.3.0</lz4.version>
-    <mockito.version>2.23.0</mockito.version>
+    <mockito.version>3.0.0</mockito.version>
     <netty.version>4.1.32.Final</netty.version>
     <netty-boringssl.version>2.0.20.Final</netty-boringssl.version>
     <ostrich.version>9.1.3</ostrich.version>
@@ -666,7 +666,7 @@
       <dependency>
         <groupId>org.mockito</groupId>
         <artifactId>mockito-core</artifactId>
-        <version>2.23.0</version>
+        <version>${mockito.version}</version>
       </dependency>
       <dependency>
         <groupId>org.powermock</groupId>
@@ -799,12 +799,12 @@
         <plugin>
           <groupId>org.sonarsource.scanner.maven</groupId>
           <artifactId>sonar-maven-plugin</artifactId>
-          <version>3.7.0.1746</version>
+          <version>3.6.0.1398</version>
         </plugin>
         <plugin>
           <groupId>org.jacoco</groupId>
           <artifactId>jacoco-maven-plugin</artifactId>
-          <version>0.8.5</version>
+          <version>0.8.4</version>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>

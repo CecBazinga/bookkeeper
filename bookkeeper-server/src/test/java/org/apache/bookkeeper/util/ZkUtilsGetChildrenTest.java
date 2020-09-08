@@ -1,6 +1,5 @@
 package org.apache.bookkeeper.util;
 
-import org.apache.bookkeeper.discover.RegistrationManager;
 import org.apache.bookkeeper.test.ZooKeeperUtil;
 import org.apache.zookeeper.CreateMode;
 import org.apache.zookeeper.ZooDefs;
@@ -10,9 +9,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
-import org.mockito.Mock;
 
-import javax.sound.midi.SysexMessage;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.Collection;
@@ -21,9 +18,6 @@ import java.util.List;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
 
 @RunWith(value= Parameterized.class)
 
